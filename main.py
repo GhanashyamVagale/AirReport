@@ -36,7 +36,7 @@ groq = OpenAI(
 )
 
 llm = AzureChatOpenAI(
-    openai_api_version=os.environ["OPENAI_API_GPT_4_VERSION"],
+    openai_api_version="2024-05-13",
     azure_deployment="gpt-4o",
     model="gpt-4o",
     temperature=0.7,
