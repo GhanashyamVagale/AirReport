@@ -41,7 +41,7 @@ llm = AzureChatOpenAI(
     model="gpt-4o",
     temperature=0.7,
     openai_api_key=OPENAI_API_GPT_4_KEY,
-    azure_endpoint=OPENAI_API_GPT_4_BASE;
+    azure_endpoint=OPENAI_API_GPT_4_BASE
 )
 
 # Function to convert audio file to base64
