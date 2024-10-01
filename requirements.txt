@@ -2,6 +2,7 @@ streamlit
 crewai
 crewai[tools]
 python-dotenv
+langchain-google-genai
 openai
 langchain_openai
 pydub
