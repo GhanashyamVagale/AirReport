@@ -6,6 +6,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew, Process
 from langchain_openai import AzureChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from docx import Document
 from io import BytesIO
 import base64
@@ -15,6 +16,8 @@ load_dotenv()
 OPENAI_API_GPT_4_KEY="3ca52d0b68c14a96b5bf33a4a39d7815"
 OPENAI_API_GPT_4_BASE="https://projectgvs.openai.azure.com/"
 GROQ_API_KEY="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"
+
+llm_vertex = VertexAI(model_name="gemini-1.5-flash")
 
 def generate_docx(result):
     doc = Document()
@@ -35,14 +38,19 @@ groq = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-llm = AzureChatOpenAI(
-    openai_api_version="2024-05-13-preview",
-    azure_deployment="gpt-4o",
-    model="gpt-4o",
-    temperature=0.7,
-    openai_api_key=OPENAI_API_GPT_4_KEY,
-    azure_endpoint=OPENAI_API_GPT_4_BASE
-)
+llm=ChatGoogleGenerativeAI(model="gemini-1.5-flash",
+                           verbose=True,
+                           temperature=0.5,
+                           google_api_key="AIzaSyCaDGxWcKdbfyTqJ6lQa_MPKYqjuYM7iX0")
+
+# llm = AzureChatOpenAI(
+#     openai_api_version="2024-05-13",
+#     azure_deployment="gpt-4o",
+#     model="gpt-4o",
+#     temperature=0.7,
+#     openai_api_key=OPENAI_API_GPT_4_KEY,
+#     azure_endpoint=OPENAI_API_GPT_4_BASE
+# )
 
 # Function to convert audio file to base64
 def audio_to_base64(file):
