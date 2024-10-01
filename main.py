@@ -130,7 +130,7 @@ with col1:
                         agents=[transcription_reader, incident_report_writer],
                         tasks=[clean_transcription_task, incident_report_task],
                         process=Process.sequential,
-                        verbose=2
+                        verbose=False
                     )
 
                     result = crew.kickoff()
