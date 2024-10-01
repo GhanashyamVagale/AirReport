@@ -17,7 +17,6 @@ OPENAI_API_GPT_4_KEY="3ca52d0b68c14a96b5bf33a4a39d7815"
 OPENAI_API_GPT_4_BASE="https://projectgvs.openai.azure.com/"
 GROQ_API_KEY="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"
 
-llm_vertex = VertexAI(model_name="gemini-1.5-flash")
 
 def generate_docx(result):
     doc = Document()
