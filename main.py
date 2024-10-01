@@ -40,7 +40,7 @@ groq = OpenAI(
 llm=ChatGoogleGenerativeAI(model="gemini/gemini-1.5-flash",
                            verbose=True,
                            temperature=0.5,
-                           google_api_key="AIzaSyCaDGxWcKdbfyTqJ6lQa_MPKYqjuYM7iX0")
+                           google_api_key=os.getenv("GOOGLE_API_KEY"))
 
 # llm = AzureChatOpenAI(
 #     openai_api_version="2024-05-13",
