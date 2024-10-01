@@ -12,10 +12,6 @@ import base64
 
 load_dotenv()
 
-OPENAI_API_GPT_4_KEY="3ca52d0b68c14a96b5bf33a4a39d7815"
-OPENAI_API_GPT_4_BASE="https://projectgvs.openai.azure.com/"
-GROQ_API_KEY="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"
-
 def generate_docx(result):
     doc = Document()
     doc.add_heading('Healthcare Diagnosis and Treatment Recommendations', 0)
@@ -31,17 +27,17 @@ def get_download_link(bio, filename):
 
 # Initialize OpenAI client
 groq = OpenAI(
-    api_key=GROQ_API_KEY,
+    api_key=os.environ["GROQ_API_KEY"],
     base_url="https://api.groq.com/openai/v1"
 )
 
 llm = AzureChatOpenAI(
-    openai_api_version="2024-05-13",
+    openai_api_version=os.environ["OPENAI_API_GPT_4_VERSION"],
     azure_deployment="gpt-4o",
     model="gpt-4o",
     temperature=0.7,
-    openai_api_key=OPENAI_API_GPT_4_KEY,
-    azure_endpoint=OPENAI_API_GPT_4_BASE
+    openai_api_key=os.environ["OPENAI_API_GPT_4_KEY"],
+    azure_endpoint=os.environ["OPENAI_API_GPT_4_BASE"]
 )
 
 # Function to convert audio file to base64
@@ -140,5 +136,4 @@ with col1:
                     result = crew.kickoff()
                     st.subheader("Incident Report")
                     st.write(result)
-
 
