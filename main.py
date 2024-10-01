@@ -37,7 +37,7 @@ groq = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-llm=ChatGoogleGenerativeAI(model="gemini-1.5-flash",
+llm=ChatGoogleGenerativeAI(model="gemini/gemini-1.5-flash",
                            verbose=True,
                            temperature=0.5,
                            google_api_key="AIzaSyCaDGxWcKdbfyTqJ6lQa_MPKYqjuYM7iX0")
